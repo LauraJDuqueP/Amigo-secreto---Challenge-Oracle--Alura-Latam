@@ -15,7 +15,7 @@ function addFriends(name) {
 
     console.log(users);
     captureValue("amigo").value = "";
-    const name = captureValue("listaAmigos");
+    let name = captureValue("listaAmigos");
     name.innerHTML = "";
     users.forEach((nombre) => {
       const li = document.createElement("li"); // creamos un <li>
@@ -25,4 +25,19 @@ function addFriends(name) {
   } else {
     console.log("El campo está vacío");
   }
+}
+
+function sortearAmigo() {
+  let number = Math.floor(Math.random() * users.length);
+  console.log(number);
+  let name = captureValue("listaAmigos");
+  name.textContent = "";
+  let newP = captureValue("miParrafo");
+  newP.style.display = "flex";
+  newP.style.flexDirection = "column";
+  newP.style.alignItems = "center";
+  // este código funciona pero no me centra el nombre
+  //newP.textContent = `Tu amigo Secreto es: \n !!${users[number]}!! :D`;
+  //este código si centra el nombre del amigo secreto
+  newP.innerHTML = `Tu amigo Secreto es:<br><span style="display:block; text-align:center; font-weight:bold;">!!${users[number]}!! :D</span>`;
 }
