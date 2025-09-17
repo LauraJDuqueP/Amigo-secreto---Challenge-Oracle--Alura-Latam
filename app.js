@@ -1,23 +1,27 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+
 let users = [];
 
-// funcion para agregar los nombres de los amigos
-
-function executeValor() {
-  return document.getElementById("amigo").value;
+//funcion para capturar el valor ID del html
+function captureValue(value) {
+  return document.getElementById(value);
 }
 
+// funcion para agregar los nombres de los amigos
 function addFriends(name) {
-  let valorname = executeValor();
+  let valorname = captureValue("amigo").value;
   if (valorname.trim() !== "") {
-    //  Guardamos en el array
     users.push(valorname);
 
-    // Mostramos en consola
     console.log(users);
-
-    //  Limpiamos el input
-    document.getElementById("amigo").value = "";
+    captureValue("amigo").value = "";
+    const name = captureValue("listaAmigos");
+    name.innerHTML = "";
+    users.forEach((nombre) => {
+      const li = document.createElement("li"); // creamos un <li>
+      li.textContent = nombre; // le ponemos el texto
+      name.appendChild(li); // lo agregamos dentro del <ul>
+    });
   } else {
     console.log("El campo está vacío");
   }
