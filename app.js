@@ -13,7 +13,7 @@ function addFriends(name) {
   if (valorname.trim() !== "") {
     users.push(valorname);
 
-    console.log(users);
+    //console.log(users);
     captureValue("amigo").value = "";
     let name = captureValue("listaAmigos");
     name.innerHTML = "";
@@ -23,13 +23,13 @@ function addFriends(name) {
       name.appendChild(li); // lo agregamos dentro del <ul>
     });
   } else {
-    console.log("El campo está vacío");
+    alert("El campo está vacío. Ingresa el nombre de un amigo");
   }
 }
 
 function sortearAmigo() {
   let number = Math.floor(Math.random() * users.length);
-  console.log(number);
+  //console.log(number);
   let name = captureValue("listaAmigos");
   name.textContent = "";
   let newP = captureValue("miParrafo");
